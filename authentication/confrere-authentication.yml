@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.compodium.com/api/
+docs: https://docs.compodium.com/api/
+notes: >-
+  The published OpenAPI declares no named securitySchemes — authentication is
+  documented as three required request headers on every operation. Captured
+  here from the docs rather than derived from an (absent) securitySchemes block.
+summary:
+  types: [http, apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+  - name: BearerToken
+    type: http
+    scheme: bearer
+    in: header
+    header: Authorization
+    format: "Bearer $TOKEN"
+    description: >-
+      Signed bearer token for the request, sent as `Authorization: Bearer
+      $TOKEN`. Paired with the X-Vidicue-Nonce and X-Vidicue-Key headers.
+    sources: [openapi/confrere-video-openapi.yml]
+  - name: ApiKey
+    type: apiKey
+    in: header
+    header: X-Vidicue-Key
+    description: The API key issued for your integration.
+    sources: [openapi/confrere-video-openapi.yml]
+  - name: Nonce
+    type: apiKey
+    in: header
+    header: X-Vidicue-Nonce
+    description: A numeric nonce accompanying the bearer authorization.
+    sources: [openapi/confrere-video-openapi.yml]
