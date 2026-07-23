@@ -1,0 +1,184 @@
+openapi: 3.0.0
+info:
+  title: Room Token API
+tags:
+- name: Token
+paths:
+  /api/token:
+    post:
+      summary: Get room url
+      description: This routes creates a new room and returns the url that you can redirect your users to. Note that the url expires after a minute and can only be used once.
+      parameters:
+      - in: header
+        name: Authorization
+        description: The authorization bearer token in the format `Bearer $TOKEN`
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-Vidicue-Nonce
+        description: The nonce for the authorization
+        required: true
+        schema:
+          type: number
+      - in: header
+        name: X-Vidicue-Key
+        description: The API_KEY for your integration
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - roomId
+              - userId
+              properties:
+                roomId:
+                  type: string
+                  example: myintegrationprefix:myroom
+                  description: Only [a-zA-Z0-9_-] is allowed (in the id after "myintegrationprefix:"), max length is 100 chars
+                roomName:
+                  type: string
+                userId:
+                  type: string
+                role:
+                  type: string
+                  enum:
+                  - guest
+                  - moderator
+                  - admin
+                  default: guest
+                useLobby:
+                  type: boolean
+                  default: false
+                estimatedNumberOfParticipants:
+                  type: number
+                invalidateOnProperLeave:
+                  type: boolean
+                  default: false
+                  description: Automatically invalidate a user token when they click the leave button.
+                userData:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                roomLock:
+                  type: object
+                  description: If `enabled=true` and `isActive=true`, adds a waiting room with request to join functionality. `isActive` can be toggled after room start.
+                  properties:
+                    enabled:
+                      type: boolean
+                      default: false
+                      description: If `true`, enable room lock functionality.
+                    isActive:
+                      type: boolean
+                      default: false
+                      description: If `enabled=true` and `isActive=true`, room lock is active.
+                    mayBypass:
+                      type: boolean
+                      default: false
+                      description: If `true`, user may enter room without being placed in waiting room.
+                clientOptions:
+                  type: object
+                  properties:
+                    autoLockOnHostLeave:
+                      type: boolean
+                      default: false
+                      description: If `true`, the meeting is paused when the admin/host unexpectedly leaves (for example due to a network issue).
+                    clearInvalidations:
+                      type: boolean
+                      default: true
+                      description: If `true`, clears invalidated rooms and users before generating a token.
+                    devices:
+                      type: object
+                      properties:
+                        audio:
+                          type: string
+                          default: ''
+                          description: Label of the audio input device to use.
+                        audioOutput:
+                          type: string
+                          default: ''
+                          description: Label of the audio output device to use.
+                        video:
+                          type: string
+                          default: ''
+                          description: Label of the video input device to use.
+                      description: Specifies the preferred audio and video devices. If all device labels are provided and matched successfully with the available devices in the browser, they will be automatically selected, allowing the participant to skip the initial settings screen and join the room directly.
+                    disableCamera:
+                      type: boolean
+                      default: false
+                    disableChat:
+                      type: boolean
+                      default: false
+                    disableLayout:
+                      type: boolean
+                      default: false
+                    disableMembersList:
+                      type: boolean
+                      default: false
+                    disableMicrophone:
+                      type: boolean
+                      default: false
+                    disableMirroredCamera:
+                      type: boolean
+                      default: false
+                    disableNPS:
+                      type: boolean
+                      default: false
+                      description: If `true`, skips the NPS screen shown after the meeting.
+                    disableRaiseHand:
+                      type: boolean
+                      default: false
+                    disableRecording:
+                      type: boolean
+                      default: false
+                    disableShareScreen:
+                      type: boolean
+                      default: false
+                    disableVisualEffects:
+                      type: boolean
+                      default: false
+                    enableEmojiReactions:
+                      type: boolean
+                      default: false
+                    forceVirtualBackgroundUrl:
+                      type: string
+                      default: ''
+                    skipPreview:
+                      type: boolean
+                      default: false
+                      description: If `true`, skips the preview screen before joining the meeting and uses the device default audio and video devices.
+                    startAsHidden:
+                      type: boolean
+                      default: false
+                    startAsMuted:
+                      type: boolean
+                      default: false
+                    startVideoFit:
+                      type: string
+                      enum:
+                      - contain
+                      - cover
+                      - null
+                      default: null
+      responses:
+        '200':
+          description: Token was accepted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      tags:
+      - Token

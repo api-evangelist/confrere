@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  title: Room API
+tags:
+- name: Room
+paths:
+  /api/room/{id}/invalidate:
+    post:
+      summary: Invalidate room
+      description: Invalidates a room key, making all signed tokens for it unable to join the room. Also immediately destroys the room.
+      parameters:
+      - in: header
+        name: Authorization
+        description: The authorization bearer token in the format `Bearer $TOKEN`
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-Vidicue-Nonce
+        description: The nonce for the authorization
+        required: true
+        schema:
+          type: number
+      - in: header
+        name: X-Vidicue-Key
+        description: The API_KEY for your integration
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        description: The room id that should be invalidated
+        required: true
+        schema:
+          type: string
+          example: myintegration:test
+      responses:
+        '204':
+          description: Room was invalidated
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      tags:
+      - Room
+  /api/room/{id}/{userId}/invalidate:
+    post:
+      summary: Invalidate user
+      description: Invalidates a user id for a room, and immediately kicks the user.
+      parameters:
+      - in: header
+        name: Authorization
+        description: The authorization bearer token in the format `Bearer $TOKEN`
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: X-Vidicue-Nonce
+        description: The nonce for the authorization
+        required: true
+        schema:
+          type: number
+      - in: header
+        name: X-Vidicue-Key
+        description: The API_KEY for your integration
+        required: true
+        schema:
+          type: string
+      - in: path
+        name: id
+        description: The room id
+        required: true
+        schema:
+          type: string
+          example: myintegration:test
+      - in: path
+        name: userId
+        description: The userId that should be invalidated
+        required: true
+        schema:
+          type: string
+          example: '123'
+      responses:
+        '204':
+          description: User was invalidated
+        '400':
+          description: Bad Request
+        '401':
+          description: Unauthorized
+      tags:
+      - Room
