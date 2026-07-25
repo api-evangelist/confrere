@@ -1,20 +1,73 @@
 aid: confrere
 name: Confrere
-description: Confrere is a company surfaced as a portfolio company of point-nine and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Confrere is a privacy-first, embeddable video-consultation platform (now a
+  Compodium product) built in the Nordics for healthcare providers, therapists,
+  consultants, tutors, and sales teams who need secure, encrypted video meetings
+  that clients join from any modern browser with no download. Its server-side
+  API mints single-use, one-minute room URLs that redirect a participant into a
+  Confrere video room, and lets integrators invalidate a room or eject a
+  specific user. Reliability is advertised at 99% across more than one million
+  completed meetings. Backed by Point Nine.
 url: https://raw.githubusercontent.com/api-evangelist/confrere/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://confrere.com/static/images/Thumbnail.webp
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - point-nine
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: real-openapi-harvested
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
-apis: []
+- Video
+- Video Conferencing
+- Communications
+- Healthcare
+- Telehealth
+- Embeddable
+- WebRTC
+apis:
+- aid: confrere:confrere-room-api
+  name: Confrere Room API
+  description: The Room API from Confrere — 2 operation(s) for room.
+  humanURL: https://docs.compodium.com/api/
+  tags:
+  - Room
+  properties:
+  - type: OpenAPI
+    url: openapi/confrere-room-api-openapi.yml
+  - type: Documentation
+    url: https://docs.compodium.com/api/
+  - type: APIReference
+    url: https://docs.compodium.com/api/
+- aid: confrere:confrere-token-api
+  name: Confrere Token API
+  description: The Token API from Confrere — 1 operation(s) for token.
+  humanURL: https://docs.compodium.com/api/
+  tags:
+  - Token
+  properties:
+  - type: OpenAPI
+    url: openapi/confrere-token-api-openapi.yml
+  - type: Documentation
+    url: https://docs.compodium.com/api/
+  - type: APIReference
+    url: https://docs.compodium.com/api/
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +76,55 @@ maintainers:
 common:
 - type: Website
   url: https://confrere.com
+- type: DeveloperPortal
+  url: https://docs.compodium.com/api/
+- type: Documentation
+  url: https://docs.compodium.com/api/
+- type: APIReference
+  url: https://docs.compodium.com/api/
+- type: Pricing
+  url: https://confrere.com/pricing
+- type: SignUp
+  url: https://confrere.com/signup
+- type: Login
+  url: https://confrere.com/login
+- type: Support
+  url: https://confrere.com/contact-us
+- type: Blog
+  url: https://confrere.com/blog
+- type: TermsOfService
+  url: https://confrere.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://confrere.com/privacy
+- type: StatusPage
+  url: https://status.confrere.com
+- type: Authentication
+  url: authentication/confrere-authentication.yml
+- type: Conventions
+  url: conventions/confrere-conventions.yml
+- type: ErrorCatalog
+  url: errors/confrere-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/confrere-lifecycle.yml
+- type: Conformance
+  url: conformance/confrere-conformance.yml
+- type: DataModel
+  url: data-model/confrere-data-model.yml
+- type: MCPServer
+  url: mcp/confrere-mcp.yml
+- type: LLMsTxt
+  url: llms/confrere-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Start and end a video session
+  url: arazzo/confrere-video-session.yml
+- type: AgenticAccess
+  url: agentic-access/confrere-agentic-access.yml
+- type: DomainSecurity
+  url: security/confrere-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

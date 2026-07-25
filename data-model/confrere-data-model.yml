@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/confrere-video-openapi.yml
+notes: >-
+  Entity-relationship graph derived from the OpenAPI request/response shapes.
+  The API exposes no schema components; entities are inferred from path
+  parameters and request-body fields.
+entities:
+  - name: Room
+    id_field: roomId
+    id_convention: "<integrationPrefix>:<roomId>"
+    fields: [roomId, roomName, useLobby, estimatedNumberOfParticipants, roomLock, clientOptions]
+    description: A video room created by minting a token; addressable by roomId.
+  - name: Participant
+    id_field: userId
+    fields: [userId, role, userData, invalidateOnProperLeave]
+    description: A user admitted to a room, with a role of guest, moderator, or admin.
+  - name: RoomToken
+    fields: [url]
+    description: A single-use, one-minute redirect URL that admits a participant to a room.
+relationships:
+  - from: RoomToken
+    to: Room
+    type: belongs_to
+    via: roomId
+  - from: RoomToken
+    to: Participant
+    type: belongs_to
+    via: userId
+  - from: Room
+    to: Participant
+    type: has_many
+    via: userId

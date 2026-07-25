@@ -1,0 +1,41 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.compodium.com/api/
+notes: >-
+  Cross-cutting request/response semantics captured from the docs and derived
+  from the OpenAPI. Confrere's API is a small token-minting surface, so several
+  conventions (pagination, idempotency keys) do not apply and are recorded as
+  such rather than fabricated.
+authentication:
+  style: bearer-token + api-key + nonce (all in headers)
+  headers: [Authorization, X-Vidicue-Key, X-Vidicue-Nonce]
+  see: authentication/confrere-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or parameter is documented. Room creation is
+    naturally keyed by the caller-supplied roomId (namespaced as
+    "<integrationPrefix>:<roomId>"), and invalidate operations are terminal, but
+    the provider does not publish an idempotency contract.
+pagination:
+  supported: false
+  notes: No list/collection endpoints exist; nothing to paginate.
+resource_naming:
+  room_id: >-
+    "<integrationPrefix>:<roomId>"; the id after the prefix allows only
+    [a-zA-Z0-9_-], max length 100 chars.
+  roles: [guest, moderator, admin]
+tokens:
+  room_url_single_use: true
+  room_url_ttl_seconds: 60
+  notes: The returned room URL expires after a minute and can only be used once.
+versioning:
+  scheme: none
+  see: lifecycle/confrere-lifecycle.yml
+error_envelope:
+  shape: http-status-only
+  problem_json: false
+  see: errors/confrere-problem-types.yml
+rate_limiting:
+  documented: false
+  notes: No rate-limit headers or quotas are published in the docs or spec.

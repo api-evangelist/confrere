@@ -1,0 +1,33 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/confrere-video-openapi.yml
+format: http
+notes: >-
+  Derived from the OpenAPI 4xx responses. The spec documents status codes with
+  short descriptions only — there is no application/problem+json body schema, so
+  format is plain HTTP status rather than rfc9457. Titles/remediation added from
+  the operation semantics documented at https://docs.compodium.com/api/.
+problems:
+  - status: 400
+    title: Bad Request
+    detail: >-
+      The request payload or path parameters were invalid (for example an
+      illegal roomId — only [a-zA-Z0-9_-] is allowed after the integration
+      prefix, max 100 chars).
+    remediation: Validate the roomId/userId format and required fields before retrying.
+    source_operations:
+      - openapi/confrere-video-openapi.yml#/paths/~1api~1token/post
+      - openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1invalidate/post
+      - openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1{userId}~1invalidate/post
+  - status: 401
+    title: Unauthorized
+    detail: >-
+      Authentication failed. One of the required Authorization (Bearer),
+      X-Vidicue-Key or X-Vidicue-Nonce headers was missing or invalid.
+    remediation: >-
+      Re-check the bearer token signature, the X-Vidicue-Key API key, and the
+      X-Vidicue-Nonce value.
+    source_operations:
+      - openapi/confrere-video-openapi.yml#/paths/~1api~1token/post
+      - openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1invalidate/post
+      - openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1{userId}~1invalidate/post

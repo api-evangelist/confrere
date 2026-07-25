@@ -1,0 +1,53 @@
+arazzo: 1.0.1
+info:
+  title: Confrere — start and end a video session
+  version: 1.0.0
+  summary: >-
+    Mint a single-use room URL for a participant, then end the session by
+    invalidating the room.
+# generated: '2026-07-18'
+# method: derived
+# source: openapi/confrere-video-openapi.yml
+sourceDescriptions:
+  - name: confrere
+    url: ../openapi/confrere-video-openapi.yml
+    type: openapi
+workflows:
+  - workflowId: startAndEndVideoSession
+    summary: Create a room URL for a user, then invalidate the room to end the session.
+    description: >-
+      Uses operationPath references because the published spec ships no
+      operationIds. Step 1 mints a one-minute, single-use redirect URL; after
+      the meeting, step 2 invalidates the room so all tokens are revoked and the
+      room is destroyed.
+    inputs:
+      type: object
+      properties:
+        roomId:
+          type: string
+          example: myintegration:consult-123
+        userId:
+          type: string
+          example: user-42
+    steps:
+      - stepId: createRoomToken
+        description: Create the room and get the redirect URL for the participant.
+        operationPath: $sourceDescriptions.confrere.url#/paths/~1api~1token/post
+        requestBody:
+          contentType: application/json
+          payload:
+            roomId: $inputs.roomId
+            userId: $inputs.userId
+            role: moderator
+            useLobby: true
+        outputs:
+          roomUrl: $response.body#/url
+      - stepId: invalidateRoom
+        description: End the session by invalidating the room and all its tokens.
+        operationPath: $sourceDescriptions.confrere.url#/paths/~1api~1room~1{id}~1invalidate/post
+        parameters:
+          - name: id
+            in: path
+            value: $inputs.roomId
+    outputs:
+      roomUrl: $steps.createRoomToken.outputs.roomUrl

@@ -1,0 +1,19 @@
+{
+  "provider": "confrere",
+  "sources": [
+    "confrere-room-api-openapi.yml",
+    "confrere-token-api-openapi.yml"
+  ],
+  "outputs": [
+    "confrere-room-api-openapi.yml",
+    "confrere-token-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [
+    "confrere-room-api-openapi.yml: info.version missing",
+    "confrere-token-api-openapi.yml: info.version missing"
+  ],
+  "notes": [],
+  "skipped": []
+}

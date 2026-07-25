@@ -1,0 +1,19 @@
+generated: '2026-07-18'
+method: searched
+source: https://docs.compodium.com/api/
+notes: >-
+  Confrere's API is unversioned in the published spec (paths under /api with no
+  version segment; the OpenAPI info carries no version). Two live status pages
+  were found. No deprecation/sunset policy is published.
+versioning:
+  scheme: none
+  current: null
+  docs: https://docs.compodium.com/api/
+deprecation:
+  policy_url: null
+  sunset_header: false
+status_page: https://status.confrere.com
+status_pages:
+  - https://status.confrere.com
+  - https://status.compodium.com
+deprecated_operations: []

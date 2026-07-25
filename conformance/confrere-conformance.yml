@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/confrere-video-openapi.yml
+notes: >-
+  Cross-cutting standards conformance derived from the OpenAPI and auth model.
+  No published compliance program (SOC 2 / ISO 27001 / HIPAA) was found for the
+  Confrere API surface, so no Compliance pointer is wired.
+standards:
+  - id: openapi-3.0
+    conforms: true
+    evidence: openapi/confrere-video-openapi.yml declares openapi 3.0.0
+  - id: oauth2
+    conforms: false
+    evidence: auth is bearer-token + api-key headers, no oauth2 securityScheme
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: 4xx responses carry no application/problem+json body
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404
+  - id: tls1.3
+    conforms: true
+    evidence: confrere.com negotiates TLSv1.3 (security/confrere-domain-security.yml)

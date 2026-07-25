@@ -1,0 +1,36 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Confrere Video API
+  version: 1.0.0
+# generated: '2026-07-18'
+# method: generated
+# source: openapi/confrere-video-openapi.yml
+extends: openapi/confrere-video-openapi.yml
+actions:
+  - target: $.info
+    update:
+      title: Confrere Video API
+      description: >-
+        Confrere (a Compodium product) is a privacy-first, embeddable video
+        consultation platform. This server-side API mints single-use, expiring
+        room URLs that redirect an end user into a Confrere video room, and
+        lets an integrator invalidate a room or eject a specific user.
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        Spec harvested verbatim from
+        https://docs.compodium.com/redocusaurus/plugin-redoc-0.yaml. The
+        original omits operationIds, servers[], tags and named securitySchemes;
+        the suggested operationIds/tags below are API Evangelist enhancements,
+        not provider-published values.
+  - target: $.paths['/api/token'].post
+    update:
+      operationId: createRoomToken
+      tags: [Rooms]
+  - target: $.paths['/api/room/{id}/invalidate'].post
+    update:
+      operationId: invalidateRoom
+      tags: [Rooms]
+  - target: $.paths['/api/room/{id}/{userId}/invalidate'].post
+    update:
+      operationId: invalidateRoomUser
+      tags: [Rooms]

@@ -1,0 +1,7 @@
+generated: '2026-07-18'
+method: derived
+workflows:
+  - file: confrere-video-session.yml
+    workflowId: startAndEndVideoSession
+    title: Confrere — start and end a video session
+    summary: Mint a single-use room URL for a participant, then invalidate the room to end the session.

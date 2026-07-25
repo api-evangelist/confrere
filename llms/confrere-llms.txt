@@ -1,0 +1,32 @@
+# Confrere
+
+> Confrere is a privacy-first, embeddable video-consultation platform (a Compodium product) used by healthcare providers, therapists, consultants, and tutors for secure, encrypted 1-to-1 and small-group video calls that clients join from a browser with no download. The server-side API mints single-use, one-minute room URLs and lets integrators invalidate rooms or eject users.
+
+## APIs
+
+- [Confrere Video API (OpenAPI 3.0)](openapi/confrere-video-openapi.yml): POST /api/token to create a room URL; POST /api/room/{id}/invalidate and POST /api/room/{id}/{userId}/invalidate to end sessions or eject users.
+
+## Docs
+
+- [API documentation](https://docs.compodium.com/api/): request/response reference for the three endpoints.
+- [API & integrations overview](https://confrere.com/features/api): what the embeddable video API does.
+- [Authentication](authentication/confrere-authentication.yml): Bearer token + X-Vidicue-Key API key + X-Vidicue-Nonce headers.
+- [Conventions](conventions/confrere-conventions.yml): room-id namespacing, single-use tokens, error envelope.
+- [Error reference](errors/confrere-problem-types.yml): 400 / 401 semantics.
+- [Lifecycle & status](lifecycle/confrere-lifecycle.yml): status pages, versioning.
+
+## Specs & artifacts
+
+- [OpenAPI Overlay](overlays/confrere-video-overlay.yaml): API Evangelist enhancements (operationIds, tags).
+- [MCP server (candidate)](mcp/confrere-mcp.yml): tools derived from the OpenAPI operations.
+- [Arazzo workflow](arazzo/confrere-video-session.yml): start and end a video session.
+- [Agent Skill](skills/confrere-embed-video-call.md): embed a Confrere video call.
+- [Data model](data-model/confrere-data-model.yml): Room, Participant, RoomToken.
+- [Agentic access](agentic-access/confrere-agentic-access.yml): x-agentic-access contracts.
+
+## Links
+
+- [Website](https://confrere.com)
+- [Pricing](https://confrere.com/pricing)
+- [Sign up](https://confrere.com/signup)
+- [Status](https://status.confrere.com)
