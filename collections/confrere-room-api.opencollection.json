@@ -1,0 +1,89 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Room API"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Room",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Invalidate room",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/room/:id/invalidate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "X-Vidicue-Nonce",
+                "value": ""
+              },
+              {
+                "name": "X-Vidicue-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The room id that should be invalidated"
+              }
+            ]
+          },
+          "docs": "Invalidates a room key, making all signed tokens for it unable to join the room. Also immediately destroys the room."
+        },
+        {
+          "info": {
+            "name": "Invalidate user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/room/:id/:userId/invalidate",
+            "headers": [
+              {
+                "name": "Authorization",
+                "value": ""
+              },
+              {
+                "name": "X-Vidicue-Nonce",
+                "value": ""
+              },
+              {
+                "name": "X-Vidicue-Key",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "The room id"
+              },
+              {
+                "name": "userId",
+                "value": "",
+                "type": "path",
+                "description": "The userId that should be invalidated"
+              }
+            ]
+          },
+          "docs": "Invalidates a user id for a room, and immediately kicks the user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

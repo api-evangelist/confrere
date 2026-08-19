@@ -2,25 +2,27 @@ generated: '2026-07-18'
 method: derived
 status: candidate
 source: openapi/confrere-video-openapi.yml
-notes: >-
-  No official hosted/remote MCP server was found for Confrere/Compodium (docs,
-  npm @modelcontextprotocol, MCP registries all negative as of 2026-07-18).
-  The tool list below is a CANDIDATE derived one-to-one from the published
-  OpenAPI operations — not a running server.
+notes: No official hosted/remote MCP server was found for Confrere/Compodium (docs, npm @modelcontextprotocol,
+  MCP registries all negative as of 2026-07-18). The tool list below is a CANDIDATE derived one-to-one
+  from the published OpenAPI operations — not a running server.
 server:
   name: confrere
   transport: http
 tools:
-  - name: create_room_token
-    description: >-
-      Create a Confrere video room and return a single-use, one-minute URL to
-      redirect a user into it.
-    source_operation: openapi/confrere-video-openapi.yml#/paths/~1api~1token/post
-  - name: invalidate_room
-    description: >-
-      Invalidate a room key so all signed tokens can no longer join, and
-      immediately destroy the room.
-    source_operation: openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1invalidate/post
-  - name: invalidate_room_user
-    description: Invalidate a user id for a room and immediately eject that user.
-    source_operation: openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1{userId}~1invalidate/post
+- name: create_room_token
+  description: Create a Confrere video room and return a single-use, one-minute URL to redirect a user
+    into it.
+  source_operation: openapi/confrere-video-openapi.yml#/paths/~1api~1token/post
+- name: invalidate_room
+  description: Invalidate a room key so all signed tokens can no longer join, and immediately destroy
+    the room.
+  source_operation: openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1invalidate/post
+- name: invalidate_room_user
+  description: Invalidate a user id for a room and immediately eject that user.
+  source_operation: openapi/confrere-video-openapi.yml#/paths/~1api~1room~1{id}~1{userId}~1invalidate/post
+deployment:
+  mode: none
+  verified: derived
+  tools: 3
+  checked: '2026-08-12'
+  source: catalog MCP census
