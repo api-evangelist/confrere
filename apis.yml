@@ -10,6 +10,18 @@ description: >-
   specific user. Reliability is advertised at 99% across more than one million
   completed meetings. Backed by Point Nine.
 url: https://raw.githubusercontent.com/api-evangelist/confrere/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
