@@ -73,6 +73,8 @@ apis:
   description: The Token API from Confrere — 1 operation(s) for token.
   humanURL: https://docs.compodium.com/api/
   tags:
+  - Tokens
+  tags_raw:
   - Token
   properties:
   - type: OpenAPI
