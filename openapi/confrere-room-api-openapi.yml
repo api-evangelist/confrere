@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: Room API
 tags:
@@ -43,6 +43,8 @@ paths:
           description: Unauthorized
       tags:
       - Room
+      operationId: postApiRoomByIdInvalidate
+      x-operation-id-source: derived
   /api/room/{id}/{userId}/invalidate:
     post:
       summary: Invalidate user
@@ -89,3 +91,5 @@ paths:
           description: Unauthorized
       tags:
       - Room
+      operationId: postApiRoomByIdByUserIdInvalidate
+      x-operation-id-source: derived

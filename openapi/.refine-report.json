@@ -1,8 +1,7 @@
 {
   "provider": "confrere",
   "sources": [
-    "confrere-room-api-openapi.yml",
-    "confrere-token-api-openapi.yml"
+    "_original/confrere-video-openapi.yml"
   ],
   "outputs": [
     "confrere-room-api-openapi.yml",
@@ -11,9 +10,20 @@
   "archived": [],
   "errors": [],
   "warnings": [
-    "confrere-room-api-openapi.yml: info.version missing",
-    "confrere-token-api-openapi.yml: info.version missing"
+    "confrere-video-openapi.yml: info.version missing"
   ],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "confrere-video-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "confrere-video-openapi.yml: tagged paths POST /api/token -> Token",
+    "confrere-video-openapi.yml: tagged paths POST /api/room/{id}/invalidate -> Room",
+    "confrere-video-openapi.yml: tagged paths POST /api/room/{id}/{userId}/invalidate -> Room",
+    "confrere-video-openapi.yml: declared missing tag: Room",
+    "confrere-video-openapi.yml: declared missing tag: Token",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "confrere-room-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "confrere-token-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
