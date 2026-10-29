@@ -64,6 +64,125 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Confrere is a company surfaced as a portfolio company of point-nine and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Confrere is a privacy-first, embeddable video-consultation platform (now a Compodium product) built in the Nordics for healthcare providers, therapists, consultants, tutors, and sales teams who need secure, encrypted video meetings that clients join from any modern browser with no download. Its server-side API mints single-use, one-minute room URLs that redirect a participant into a Confrere video room, and lets integrators invalidate a room or eject a specific user. Reliability is advertised at 99% across more than one million completed meetings. Backed by Point Nine.
 
-Backed by: point-nine — https://confrere.com
+**Areas:** Company · Video · Video Conferencing · Communications · Healthcare · Telehealth · Embeddable · WebRTC
+
+## Confrere on APIs.io
+
+Everything profiled for Confrere is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/confrere/](https://apis.io/providers/confrere/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Confrere Room API](https://apis.io/apis/confrere/confrere-room-api/) — The Room API from Confrere — 2 operation(s) for room.
+- [Confrere Token API](https://apis.io/apis/confrere/confrere-token-api/) — The Token API from Confrere — 1 operation(s) for token.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (1)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Confrere — start and end a video session](https://apis.io/arazzos/confrere/confrere-video-session/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [confrere](https://apis.io/servers/confrere/confrere/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Confrere Agentic Access](https://apis.io/agentic-access/confrere/confrere-agentic-access/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Room API](https://apis.io/collections/confrere/open-confrere-room-api/)
+- [Room Token API](https://apis.io/collections/confrere/open-confrere-token-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Confrere Video Overlay](https://apis.io/overlays/confrere/confrere-video-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Confrere Authentication](https://apis.io/security/confrere/confrere-authentication/)
+- [Confrere Domain Security](https://apis.io/security/confrere/confrere-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://confrere.com)
+- [Documentation](https://docs.compodium.com/api/)
+- [API reference](https://docs.compodium.com/api/)
+- [Pricing](https://confrere.com/pricing)
+- [Sign up](https://confrere.com/signup)
+- [Support](https://confrere.com/contact-us)
+- [Blog](https://confrere.com/blog)
+- [Terms of service](https://confrere.com/terms-of-service)
+- [Privacy policy](https://confrere.com/privacy)
+- [Status](https://status.confrere.com)
+
+## API Evangelist rating
+
+**Kin Score 36.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 39.8 |
+| Contract governance | 4.5 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 44.7 |
+
+**Agent readiness 23.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.5** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/confrere/](https://apis.io/providers/confrere/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Confrere: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/confrere/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
